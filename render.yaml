@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: rag-backend
+    runtime: docker
+    plan: free
+    region: oregon
+    dockerfilePath: ./dockerfile.backend
+    dockerContext: .
+    healthCheckPath: /health
+    envVars:
+      - key: HF_TOKEN
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+
+  - type: web
+    name: rag-frontend
+    runtime: docker
+    plan: free
+    region: oregon
+    dockerfilePath: ./dockerfile.frontend
+    dockerContext: .
+    envVars:
+      - key: BACKEND_URL
+        fromService:
+          type: web
+          name: rag-backend
+          property: hostport

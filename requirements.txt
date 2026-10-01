@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+python-multipart
+pydantic
+huggingface_hub
+openai
+numpy
+pypdf
+langgraph
+streamlit
+requests
+python-dotenv
