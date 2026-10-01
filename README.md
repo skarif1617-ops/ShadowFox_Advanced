@@ -125,9 +125,10 @@ docker compose -f docker_compose.yml up --build
 GitHub stores the source code; it does not host this Streamlit and FastAPI
 application. To deploy both services, push this repository to GitHub, then
 create a Blueprint on Render using the repository's `render.yaml`. The
-Blueprint creates the API and frontend services and connects them over
-Render's private network. Enter `HF_TOKEN` and `GROQ_API_KEY` when prompted;
-do not commit `.env` or put API keys in the Blueprint.
+Blueprint creates the API and frontend services and connects the frontend to
+the API's HTTPS URL. Enter `HF_TOKEN` and `GROQ_API_KEY` when prompted; do not
+commit `.env` or put API keys in the Blueprint. The API has no authentication,
+so do not upload sensitive documents.
 
 The in-memory document index is temporary and is lost when the backend
 restarts or sleeps. Free Render services may sleep when idle.

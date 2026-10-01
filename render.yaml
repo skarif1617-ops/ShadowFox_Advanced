@@ -25,4 +25,4 @@ services:
         fromService:
           type: web
           name: rag-backend
-          property: hostport
+          envVarKey: RENDER_EXTERNAL_URL

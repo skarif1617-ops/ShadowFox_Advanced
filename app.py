@@ -22,7 +22,7 @@ st.caption(
 
 # ---- Backend health check ----
 try:
-    health = requests.get(f"{BACKEND_URL}/health", timeout=3)
+    health = requests.get(f"{BACKEND_URL}/health", timeout=90)
     if health.status_code != 200:
         st.error("Backend is not healthy. Please check the API service.")
 except requests.exceptions.RequestException:
